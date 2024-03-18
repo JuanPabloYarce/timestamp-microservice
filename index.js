@@ -48,7 +48,7 @@ app.get("/api/:info?", (req, res) => {
     // Verificar si la información proporcionada es un timestamp UNIX
     if (!isNaN(info)) {
       time = new Date(parseInt(info)).toUTCString();
-      unix = info;
+      unix = parseInt(info); 
     } else {
       // Si no es un timestamp, intentar interpretarlo como una cadena de fecha
       let fecha = new Date(info);
