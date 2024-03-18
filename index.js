@@ -42,7 +42,7 @@ app.get("/api/:info?", (req, res) => {
     // Si no se proporciona información, utilizar la fecha y hora actual
     let fechaActual = new Date(Date.now());
     time = fechaActual.toUTCString(); // Formatear en formato UTC
-    unix = fechaActual.getTime() / 1000;
+    unix = fechaActual.getTime();
   } else {
 
     // Verificar si la información proporcionada es un timestamp UNIX
@@ -55,7 +55,7 @@ app.get("/api/:info?", (req, res) => {
 
       if (!isNaN(fecha.getTime())) {
         time = new Date(info).toUTCString();
-        unix = fecha.getTime() / 1000;
+        unix = fecha.getTime();
       }
       else {
         // Si la entrada no es válida, responder con un mensaje de error
